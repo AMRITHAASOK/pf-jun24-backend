@@ -17,7 +17,7 @@ pfServer.use(express.json())
 // pfServer.use(applicationMiddleware)
 pfServer.use(router)
 //image export to frontend
-pfServer.use('./uploads',express.static('./uploads'))
+pfServer.use('/uploads',express.static('./uploads'))
 //4 port creation
 const PORT = 4000 || process.env.PORT
 
