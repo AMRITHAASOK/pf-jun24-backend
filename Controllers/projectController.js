@@ -28,8 +28,18 @@ exports.addProject=async(req,res)=>{
 
 //get all users projects
 exports.getAllUserProject=async(req,res)=>{
+
+    const searchkey = req.query.search
+
+    const query ={
+        language:{
+                $regex:searchkey,
+                $options:"i"
+        }
+    }
+
     try{
-        const response = await projects.find()
+        const response = await projects.find(query)
         res.status(200).json(response)
     }
     catch(err){
